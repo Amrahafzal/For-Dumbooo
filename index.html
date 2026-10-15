@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Dumbo 💙</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: radial-gradient(
+        circle at top, #172b4d, #050914 75%
+      );
+      color: #f5f0e8;
+      font-family: Georgia, serif;
+      text-align: center;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#a9c9ff 1px, transparent 1px);
+      background-size: 70px 70px, 110px 110px;
+      background-position: 0 0, 35px 40px;
+      animation: drift 20s linear infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes drift {
+      to {
+        background-position: 70px 140px, 145px 180px;
+      }
+    }
+
+    .card {
+      position: relative;
+      padding: 30px;
+      max-width: 520px;
+      width: 90%;
+      animation: appear 2s ease both;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .moon {
+      font-size: 58px;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      50% {
+        text-shadow: 0 0 30px #9bbcff;
+        transform: translateY(-6px);
+      }
+    }
+
+    .small {
+      color: #b7c8e8;
+      letter-spacing: 5px;
+      font-size: 11px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 9vw, 65px);
+      margin: 22px 0 12px;
+      text-shadow: 0 0 25px #355b99;
+    }
+
+    p {
+      line-height: 1.8;
+      color: #d0d8e8;
+    }
+
+    button {
+      margin-top: 22px;
+      padding: 14px 25px;
+      background: #e9e4da;
+      color: #101a2c;
+      border: none;
+      border-radius: 30px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 25px #789bd8;
+    }
+
+    #surprise {
+      display: none;
+      margin-top: 25px;
+      animation: appear 1.5s ease both;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stars"></div>
+
+  <main class="card">
+    <div class="moon">☾</div>
+
+    <div class="small">A LITTLE PRESENT FOR YOU</div>
+
+    <h1>Happy Birthday,<br>Dumbooo.</h1>
+
+    <p>
+      Out of all the people in this universe,<br>
+      I'm glad mine crossed paths with yours.
+    </p>
+
+    <button onclick="openSurprise()">
+      Open your surprise ✦
+    </button>
+
+    <div id="surprise">
+      <h2>You're stuck with me,and you're only mineeee. ♾️</h2>
+      <p>
+        To my favourite person,
+         Here's to our memories, our chaos,
+        and all the stories we haven't made yet.
+      </p>
+      <p>— Your best friend 💙</p>
+    </div>
+  </main>
+
+  <script>
+    function openSurprise() {
+      document.getElementById("surprise").style.display = "block";
+    }
+  </script>
+</body>
+</html>
