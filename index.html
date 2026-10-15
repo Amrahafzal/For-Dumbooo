@@ -2,156 +2,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Dumbo 💙</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Dumbo ♡</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: radial-gradient(
-        circle at top, #172b4d, #050914 75%
-      );
-      color: #f5f0e8;
-      font-family: Georgia, serif;
-      text-align: center;
-    }
-
-    .stars {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(white 1px, transparent 1px),
-        radial-gradient(#a9c9ff 1px, transparent 1px);
-      background-size: 70px 70px, 110px 110px;
-      background-position: 0 0, 35px 40px;
-      animation: drift 20s linear infinite;
-      opacity: 0.5;
-    }
-
-    @keyframes drift {
-      to {
-        background-position: 70px 140px, 145px 180px;
-      }
-    }
-
-    .card {
-      position: relative;
-      padding: 30px;
-      max-width: 520px;
-      width: 90%;
-      animation: appear 2s ease both;
-    }
-
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .moon {
-      font-size: 58px;
-      animation: glow 3s ease-in-out infinite;
-    }
-
-    @keyframes glow {
-      50% {
-        text-shadow: 0 0 30px #9bbcff;
-        transform: translateY(-6px);
-      }
-    }
-
-    .small {
-      color: #b7c8e8;
-      letter-spacing: 5px;
-      font-size: 11px;
-    }
-
-    h1 {
-      font-size: clamp(38px, 9vw, 65px);
-      margin: 22px 0 12px;
-      text-shadow: 0 0 25px #355b99;
-    }
-
-    p {
-      line-height: 1.8;
-      color: #d0d8e8;
-    }
-
-    button {
-      margin-top: 22px;
-      padding: 14px 25px;
-      background: #e9e4da;
-      color: #101a2c;
-      border: none;
-      border-radius: 30px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      transform: scale(1.06);
-      box-shadow: 0 0 25px #789bd8;
-    }
-
-    #surprise {
-      display: none;
-      margin-top: 25px;
-      animation: appear 1.5s ease both;
-    }
-  </style>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --navy:#080f20;
+  --blue:#172b4b;
+  --cream:#f5efe4;
+  --silver:#b8c9e5;
+  --lavender:#b8a9df;
+  --pink:#d6a8ba;
+  --gold:#e4c99b;
+}
+body{
+  margin:0;background:var(--navy);color:var(--cream);
+  font-family:Georgia,serif;text-align:center;overflow-x:hidden
+}
+#stars{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(white 1px,transparent 1px),
+  radial-gradient(#a9c5ff 1px,transparent 1px);
+  background-size:65px 65px,110px 110px;
+  opacity:.4;animation:sky 30s linear infinite
+}
+@keyframes sky{
+  to{background-position:0 260px,180px 300px}
+}
+section{
+  position:relative;z-index:1;min-height:85vh;padding:90px 20px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center
+}
+.hero{min-height:100vh}
+.eyebrow{
+  color:var(--silver);font:11px Arial,sans-serif;letter-spacing:4px
+}
+h1{
+  font-size:clamp(42px,10vw,78px);line-height:1.1;
+  text-shadow:0 0 28px #637bbd55;margin:24px 0
+}
+h2{font-size:clamp(28px,6vw,44px)}
+p{max-width:570px;line-height:1.9;color:#d5dced}
+.moon{font-size:65px;animation:float 3s ease-in-out infinite}
+@keyframes float{
+  50%{transform:translateY(-10px);text-shadow:0 0 28px var(--silver)}
+}
+.btn{
+  margin:10px;padding:14px 23px;border-radius:30px;
+  border:1px solid #8195b6;background:var(--cream);color:var(--navy);
+  cursor:pointer;font-size:14px;transition:.3s
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 24px #91a9d955}
+.ghost{background:transparent;color:var(--cream)}
+.line{width:55px;height:1px;background:var(--lavender);margin:20px}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;width:100%;max-width:800px
+}
+.memory{
+  border:1px solid #465777;
+  background:linear-gradient(145deg,#1b3152,#10182a);
+  border-radius:20px;padding:26px 17px;cursor:pointer;transition:.35s
+}
+.memory:hover{
+  transform:translateY(-6px) rotate(-1deg);
+  border-color:var(--lavender);box-shadow:0 0 25px #b8a9df30
+}
+.memory .icon{font-size:32px}
+.memory p{font-size:14px}
+.panel{
+  max-width:650px;width:100%;padding:28px;margin-top:22px;
+  border:1px solid #354767;border-radius:20px;
+  background:linear-gradient(145deg,#172640,#101323)
+}
+#letterPanel{border-color:var(--pink)}
+#letter{white-space:pre-line;text-align:left;line-height:2;color:#f2e9e9}
+.tag{font:10px Arial,sans-serif;letter-spacing:3px;color:var(--pink)}
+.hidden{display:none!important}
+#final{
+  background:radial-gradient(ellipse at center,#1b2c4b,#080f20 70%)
+}
+.heart{font-size:38px;color:var(--pink);animation:float 2s infinite}
+footer{position:relative;z-index:1;padding:25px;color:#93a2bc;font-size:11px}
+</style>
 </head>
 
 <body>
-  <div class="stars"></div>
+<div id="stars"></div>
 
-  <main class="card">
-    <div class="moon">☾</div>
+<section class="hero" id="home">
+  <div class="moon">☾</div>
+  <div class="eyebrow">A LITTLE SOMETHING FOR YOU</div>
+  <h1>Hey, Yahyaaaaa.</h1>
+  <p>I've got something for you, idiot.<br>
+  Don't get emotional. Actually, you might. 😭</p>
+  <button class="btn" onclick="go('birthday')">Open this, Dumbo ♡</button>
+</section>
 
-    <div class="small">A LITTLE PRESENT FOR YOU</div>
+<section id="birthday">
+  <div class="eyebrow">TODAY IS YOUR DAY</div>
+  <h1>HAPPY<br>BIRTHDAY, DUMBO.</h1>
+  <p>Another year older, still my favourite idiot.<br>
+  How unfortunate for me. How lucky for you. 💀</p>
+  <div class="line"></div>
+  <p>Okay, jokes aside... I'm really glad you're in my life.</p>
+  <button class="btn" onclick="go('story')">Our little story ↓</button>
+</section>
 
-    <h1>Happy Birthday,<br>Dumbooo.</h1>
+<section id="story">
+  <div class="eyebrow">HOW DID WE GET HERE?</div>
+  <h2>From a fake account<br>to THIS. 😭</h2>
+  <div class="panel">
+    <div class="tag">CHAPTER 01 · THE BEGINNING</div>
+    <h2>That Instagram account 💀</h2>
+    <p>Imagine texting someone from a fake account and somehow ending up becoming this close. WHO EXPECTED THAT???</p>
+    <p>Not me. Definitely not me. 😭</p>
+  </div>
+  <div class="panel" style="border-color:#b8a9df">
+    <div class="tag" style="color:#b8a9df">CHAPTER 02 · 19 JANUARY 2026</div>
+    <h2>Our first meeting ♡</h2>
+    <p>January 19th. The day we finally met in real life for the first time. Someone who had become so close to me online was actually right there. 🥹</p>
+    <p>And now look at us. You're stuck with me, Yahyaaaaa.</p>
+  </div>
+  <button class="btn" onclick="go('memories')">More about us ↓</button>
+</section>
 
-    <p>
-      Out of all the people in this universe,<br>
-      I'm glad mine crossed paths with yours.
-    </p>
-
-    <button onclick="openSurprise()">
-      Open your surprise ✦
-    </button>
-
-    <div id="surprise">
-      <h2>You're stuck with me,and you're only mineeee. ♾️</h2>
-      <p>
-        To my favourite person,
-         Here's to our memories, our chaos,
-        and all the stories we haven't made yet.
-      </p>
-      <p>— Your best friend 💙</p>
+<section id="memories">
+  <div class="eyebrow">THE DUMBO ARCHIVES</div>
+  <h2>Things about you ♡</h2>
+  <p>Tap these. And don't let your ego grow too much, okay?</p>
+  <div class="grid">
+    <div class="memory" onclick="reveal('The idiot himself 💀','Annoying? Yes. Worth keeping around? Unfortunately, also yes.')">
+      <div class="icon">💀</div><h3>The Idiot</h3>
+      <p>Tap to open ↗</p>
     </div>
-  </main>
+    <div class="memory" onclick="reveal('The way you make me feel 🥹','You make me feel special in ways I genuinely appreciate more than I can explain.')">
+      <div class="icon">♡</div><h3>My Favourite Feeling</h3>
+      <p>Tap to open ↗</p>
+    </div>
+    <div class="memory" onclick="reveal('A little confession 💌','Somewhere between that fake account and everything after, you became someone who means so much to me.')">
+      <div class="icon">✉</div><h3>A Confession</h3>
+      <p>Tap to open ↗</p>
+    </div>
+    <div class="memory" onclick="reveal('The future ✨','More conversations, more memories, more reasons to annoy you. We have more chapters to write.')">
+      <div class="icon">∞</div><h3>To Be Continued</h3>
+      <p>Tap to open ↗</p>
+    </div>
+  </div>
+  <div id="memoryResult" class="panel hidden">
+    <div id="memoryTitle" class="tag"></div>
+    <p id="memoryText"></p>
+    <button class="btn ghost" onclick="document.getElementById('memoryResult').classList.add('hidden')">Close ×</button>
+  </div>
+  <button class="btn" onclick="go('letterSection')">A letter for you 💌</button>
+</section>
 
-  <script>
-    function openSurprise() {
-      document.getElementById("surprise").style.display = "block";
-    }
-  </script>
+<section id="letterSection">
+  <div class="eyebrow">NO ROASTING FOR ONE MINUTE</div>
+  <h2>For my Yahyaaaaa ♡</h2>
+  <p>Okay, idiot. This part is actually serious.</p>
+  <div id="envelope" style="font-size:75px;cursor:pointer" onclick="openLetter()">💌</div>
+  <button class="btn" onclick="openLetter()">Open your letter ♡</button>
+  <div id="letterPanel" class="panel hidden">
+    <div class="tag">FROM YOUR FAVOURITE PERSON (OBVIOUSLY)</div>
+    <div id="letter"></div>
+    <button class="btn" onclick="go('final')">One last thing... 🥹</button>
+  </div>
+</section>
+
+<section id="final">
+  <div class="heart">♡</div>
+  <div class="eyebrow">ONE LAST THING, IDIOT</div>
+  <h1>You're stuck<br>with me. ♾️</h1>
+  <div class="panel">
+    <p>Yahya, I genuinely hope this year brings you happiness, good things, and so many reasons to smile.</p>
+    <p>Thank you for making me feel special. I hope you know that you are special to me too. More than my teasing will ever admit. 🥹</p>
+    <h2 style="color:#d6a8ba">Happy birthday, idiot. 💗</h2>
+    <p>Love you sooo much. Now don't let this get to your head.</p>
+  </div>
+  <button class="btn" onclick="celebrate()">Make a wish ✨</button>
+  <p id="wish" class="hidden">✨ I hope this year is beautiful for you. ♡ ✨</p>
+  <button class="btn ghost" onclick="go('home')">Read it all again ↺</button>
+</section>
+
+<footer>MADE WITH LOVE, A LITTLE CHAOS & TOO MANY FEELINGS · FOR YAHYA 💙</footer>
+
+<script>
+function go(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+function reveal(title,message){
+  document.getElementById("memoryTitle").textContent=title;
+  document.getElementById("memoryText").textContent=message;
+  document.getElementById("memoryResult").classList.remove("hidden");
+  document.getElementById("memoryResult").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+const letterText = `HAPPYYYY BIRTHDAYYYYY YAHYAAAAA 😭💗
+
+IDIOT. Do you actually realise how much you mean to me???
+
+LIKE HELLO??? WHO WOULD'VE THOUGHT THAT ME TEXTING YOU FROM A FAKE ACCOUNT ON INSTA WOULD END UP WITH US BECOMING THIS CLOSE 😭😭
+
+THE FAKE ACCOUNT TO BEST FRIEND PIPELINE IS ACTUALLY INSANE. WHAT EVEN IS OUR STORY BROOOO 💀
+
+And then January 19th... our first time meeting in real life. I still can't get over the fact that someone who became so close to me online was suddenly RIGHT THERE in front of me. LIKE??? THAT WAS ACTUALLY US??? 🥹
+
+But honestly, Yahya, one of my favourite things about you is the way you make me feel special. You probably don't even realise how much the little things mean to me, but they really do.
+
+I love you sooo much, idiot. And no, don't let this get to your head. You're still annoying. VERY annoying, actually. 🙄
+
+But you're MY annoying idiot, okay??? 😭💗
+
+I'm genuinely so glad that we became friends. Somewhere between that fake account and everything that followed, you became someone who means SO MUCH to me.
+
+I hope you always feel as special as you make me feel. I hope life is kind to you, that you get the things your heart wants, and that you always have reasons to smile.
+
+I wish I could put all my feelings into words, but knowing me, I'd probably end up sending you 500 messages instead. WHICH IS BASICALLY THE SAME THING ANYWAY 😭
+
+So here's your reminder, Yahyaaaaa:
+You're loved.
+You're appreciated.
+You're stuck with me.
+And unfortunately for you, I'm not going anywhere that easily. 🤭💗
+
+Happy birthday again, Dumbo.
+
+From the girl who once texted you from a fake account and somehow ended up loving you THIS MUCH.
+
+NOW GO ENJOY YOUR BIRTHDAY, IDIOTTTTT. 😭🫶🏻
+
+— YOUR BEST FRIEND 💙`;
+
+let typingTimer;
+function openLetter(){
+  const panel=document.getElementById("letterPanel");
+  if(!panel.classList.contains("hidden"))return;
+  panel.classList.remove("hidden");
+  document.getElementById("envelope").textContent="💌";
+  const output=document.getElementById("letter");
+  output.textContent="";
+  let i=0;
+  typingTimer=setInterval(()=>{
+    output.textContent+=letterText.charAt(i);
+    i++;
+    if(i>=letterText.length)clearInterval(typingTimer);
+  },18);
+  setTimeout(()=>panel.scrollIntoView({behavior:"smooth",block:"center"}),100);
+}
+function celebrate(){
+  document.getElementById("wish").classList.remove("hidden");
+  for(let i=0;i<45;i++){
+    const star=document.createElement("div");
+    star.textContent=["✦","✧","★","♡","✨"][Math.floor(Math.random()*5)];
+    star.style.cssText="position:fixed;z-index:10;left:"+Math.random()*100+
+    "vw;top:-30px;color:"+["#d6a8ba","#b8a9df","#e4c99b","#fff"][Math.floor(Math.random()*4)]+
+    ";font-size:"+(14+Math.random()*20)+"px;pointer-events:none;transition:transform 2.5s linear,opacity 2.5s";
+    document.body.appendChild(star);
+    requestAnimationFrame(()=>{
+      star.style.transform="translateY("+(window.innerHeight+80)+"px) rotate(400deg)";
+      star.style.opacity="0";
+    });
+    setTimeout(()=>star.remove(),2700);
+  }
+}
+</script>
 </body>
 </html>
